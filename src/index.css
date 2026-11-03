@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overscroll-behavior-y: contain;
+    min-height: 100dvh;
+  }
+
+  /* iOS safe area padding */
+  .safe-top { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #F9A8D4; border-radius: 4px; }
+  .dark ::-webkit-scrollbar-thumb { background: #475569; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border border-white/60 dark:border-slate-800/80 
+           shadow-lg shadow-primary-500/5 dark:shadow-black/20 text-slate-800 dark:text-slate-100;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-400 via-primary-500 to-lavender-500;
+  }
+
+  .gradient-warm {
+    @apply bg-gradient-to-br from-primary-100 via-peach-100 to-lavender-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-pink-400 to-lavender-500 dark:from-primary-400 dark:via-pink-300 dark:to-lavender-400;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:hover:shadow-black/40 hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-2xl font-semibold text-white gradient-primary 
+           shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 
+           active:scale-95 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-2xl font-semibold text-primary-600 dark:text-primary-300 bg-primary-50 dark:bg-slate-800 
+           hover:bg-primary-100 dark:hover:bg-slate-700 active:scale-95 transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border-2 border-primary-100 dark:border-slate-700 bg-white/80 dark:bg-slate-800/90 
+           focus:border-primary-400 dark:focus:border-primary-500 focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-500/20
+           transition-all duration-200 outline-none text-slate-700 dark:text-slate-100 
+           placeholder:text-slate-300 dark:placeholder:text-slate-500;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .progress-ring {
+    transition: stroke-dashoffset 0.5s ease;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  .page-container {
+    @apply min-h-screen pb-24 pt-4 px-4 max-w-lg mx-auto;
+  }
+
+  .section-title {
+    @apply text-lg font-bold text-slate-800 dark:text-slate-100 font-display;
+  }
+
+  .floating-action-btn {
+    @apply fixed bottom-24 right-6 w-14 h-14 rounded-full gradient-primary 
+           shadow-lg shadow-primary-500/40 flex items-center justify-center 
+           text-white active:scale-90 transition-transform z-30;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
+
+/* Notification badge pulse */
+@keyframes notification-ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+.notification-dot::after {
+  content: '';
+  @apply absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-red-500 rounded-full;
+}
+
+.notification-dot::before {
+  content: '';
+  @apply absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-red-500 rounded-full;
+  animation: notification-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

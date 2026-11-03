@@ -1,0 +1,20 @@
+{
+  "name": "MamaBear – Maternity Companion",
+  "short_name": "MamaBear",
+  "description": "Your complete maternity companion app with baby growth tracking, hospital reminders, checklists, and budget planning.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFBF5",
+  "theme_color": "#EC4899",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "lifestyle", "medical"]
+}
+
