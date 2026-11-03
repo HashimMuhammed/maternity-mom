@@ -51,7 +51,7 @@ export default function NutritionGuide() {
   ]
 
   return (
-    <div className="page-container bg-gradient-to-b from-cream to-mint-50/30 min-h-screen">
+    <div className="page-container min-h-screen pb-28">
       <Header title="Nutrition Guide 🥗" showBack />
 
       {/* Tab Selector */}

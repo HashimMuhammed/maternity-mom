@@ -34,40 +34,40 @@ const menuItems = [
 
 const colorMap = {
   primary: {
-    bg: 'bg-pink-50',
-    iconBg: 'bg-primary-100',
-    icon: 'text-primary-500',
-    ring: 'ring-primary-200/50',
+    bg: 'bg-pink-50 dark:bg-pink-950/40',
+    iconBg: 'bg-primary-100 dark:bg-primary-950/80',
+    icon: 'text-primary-500 dark:text-primary-300',
+    ring: 'ring-primary-200/50 dark:ring-primary-800/40',
   },
   lavender: {
-    bg: 'bg-lavender-50',
-    iconBg: 'bg-lavender-100',
-    icon: 'text-lavender-500',
-    ring: 'ring-lavender-200/50',
+    bg: 'bg-lavender-50 dark:bg-purple-950/40',
+    iconBg: 'bg-lavender-100 dark:bg-purple-950/80',
+    icon: 'text-lavender-500 dark:text-lavender-300',
+    ring: 'ring-lavender-200/50 dark:ring-purple-800/40',
   },
   mint: {
-    bg: 'bg-mint-50',
-    iconBg: 'bg-mint-100',
-    icon: 'text-mint-600',
-    ring: 'ring-mint-200/50',
+    bg: 'bg-mint-50 dark:bg-emerald-950/40',
+    iconBg: 'bg-mint-100 dark:bg-emerald-950/80',
+    icon: 'text-mint-600 dark:text-mint-300',
+    ring: 'ring-mint-200/50 dark:ring-emerald-800/40',
   },
   peach: {
-    bg: 'bg-peach-50',
-    iconBg: 'bg-peach-100',
-    icon: 'text-peach-600',
-    ring: 'ring-peach-200/50',
+    bg: 'bg-peach-50 dark:bg-amber-950/40',
+    iconBg: 'bg-peach-100 dark:bg-amber-950/80',
+    icon: 'text-peach-600 dark:text-amber-300',
+    ring: 'ring-peach-200/50 dark:ring-amber-800/40',
   },
   red: {
-    bg: 'bg-red-50',
-    iconBg: 'bg-red-100',
-    icon: 'text-red-500',
-    ring: 'ring-red-200/50',
+    bg: 'bg-red-50 dark:bg-rose-950/40',
+    iconBg: 'bg-red-100 dark:bg-rose-950/80',
+    icon: 'text-red-500 dark:text-rose-300',
+    ring: 'ring-red-200/50 dark:ring-rose-800/40',
   },
   slate: {
-    bg: 'bg-slate-50',
-    iconBg: 'bg-slate-100',
-    icon: 'text-slate-500',
-    ring: 'ring-slate-200/50',
+    bg: 'bg-slate-50 dark:bg-slate-800/40',
+    iconBg: 'bg-slate-100 dark:bg-slate-800',
+    icon: 'text-slate-500 dark:text-slate-300',
+    ring: 'ring-slate-200/50 dark:ring-slate-700/40',
   },
 };
 
@@ -125,7 +125,7 @@ export default function MoreMenu() {
                 </div>
 
                 {/* Label */}
-                <p className="font-display font-semibold text-sm text-gray-700 leading-snug">
+                <p className="font-display font-bold text-sm text-slate-800 dark:text-slate-100 leading-snug">
                   {item.label}
                 </p>
               </Link>

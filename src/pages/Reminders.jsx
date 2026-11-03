@@ -108,7 +108,7 @@ export default function Reminders() {
   }).reverse()
 
   return (
-    <div className="page-container bg-gradient-to-b from-cream to-primary-50/30 min-h-screen">
+    <div className="page-container min-h-screen pb-28">
       <Header title="Reminders 🔔" showBack />
 
       {/* Add Reminder Button */}

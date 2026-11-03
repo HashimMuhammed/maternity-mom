@@ -17,6 +17,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overscroll-behavior-y: contain;
     min-height: 100dvh;
+    @apply text-slate-800 dark:text-slate-100 bg-cream dark:bg-slate-950 transition-colors duration-300;
   }
 
   /* iOS safe area padding */
@@ -32,8 +33,8 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border border-white/60 dark:border-slate-800/80 
-           shadow-lg shadow-primary-500/5 dark:shadow-black/20 text-slate-800 dark:text-slate-100;
+    @apply bg-white/85 dark:bg-slate-900/90 backdrop-blur-xl border border-white/60 dark:border-slate-800 
+           shadow-lg shadow-primary-500/5 dark:shadow-black/30 text-slate-800 dark:text-slate-100;
   }
 
   .gradient-primary {
@@ -64,10 +65,10 @@
   }
 
   .input-field {
-    @apply w-full px-4 py-3 rounded-2xl border-2 border-primary-100 dark:border-slate-700 bg-white/80 dark:bg-slate-800/90 
+    @apply w-full px-4 py-3 rounded-2xl border-2 border-primary-100 dark:border-slate-700 bg-white/80 dark:bg-slate-800/95 
            focus:border-primary-400 dark:focus:border-primary-500 focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-500/20
-           transition-all duration-200 outline-none text-slate-700 dark:text-slate-100 
-           placeholder:text-slate-300 dark:placeholder:text-slate-500;
+           transition-all duration-200 outline-none text-slate-800 dark:text-white 
+           placeholder:text-slate-400 dark:placeholder:text-slate-400;
   }
 
   .badge {
@@ -101,6 +102,114 @@
   .animate-delay-200 { animation-delay: 200ms; }
   .animate-delay-300 { animation-delay: 300ms; }
   .animate-delay-500 { animation-delay: 500ms; }
+}
+
+/* =========================================================================
+   DARK THEME HIGH-CONTRAST & BRIGHT TYPOGRAPHY (Fixes unreadable dark text)
+   ========================================================================= */
+.dark {
+  color-scheme: dark;
+}
+
+/* Bright, clear text colors on dark backgrounds */
+.dark .text-slate-900,
+.dark .text-slate-800 {
+  color: #f8fafc !important; /* Pure white-slate (high contrast) */
+}
+
+.dark .text-slate-700 {
+  color: #f1f5f9 !important; /* Bright primary body text */
+}
+
+.dark .text-slate-600 {
+  color: #e2e8f0 !important; /* Crisp secondary text */
+}
+
+.dark .text-slate-500 {
+  color: #cbd5e1 !important; /* Highly legible subtext */
+}
+
+.dark .text-slate-400 {
+  color: #94a3b8 !important; /* Clean muted metadata */
+}
+
+/* Nested card backgrounds in dark mode */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/60,
+.dark .bg-slate-50\/70,
+.dark .bg-slate-50\/80 {
+  background-color: rgba(30, 41, 59, 0.75) !important;
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: rgba(51, 65, 85, 0.6) !important;
+  border-color: rgba(71, 85, 105, 0.6) !important;
+}
+
+/* Category highlights in dark mode */
+.dark .bg-mint-50,
+.dark .bg-mint-50\/80,
+.dark .bg-mint-50\/50,
+.dark .bg-mint-50\/40 {
+  background-color: rgba(6, 78, 59, 0.35) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+.dark .text-mint-700,
+.dark .text-mint-800,
+.dark .text-mint-900 {
+  color: #6ee7b7 !important; /* Vivid mint green */
+}
+
+.dark .bg-amber-50,
+.dark .bg-amber-50\/80,
+.dark .bg-peach-50 {
+  background-color: rgba(120, 53, 15, 0.35) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+.dark .text-amber-800,
+.dark .text-amber-700 {
+  color: #fde047 !important; /* Bright vibrant amber */
+}
+
+.dark .bg-lavender-50,
+.dark .bg-lavender-50\/80 {
+  background-color: rgba(76, 29, 149, 0.35) !important;
+  border-color: rgba(139, 92, 246, 0.35) !important;
+}
+
+.dark .text-lavender-700,
+.dark .text-lavender-800 {
+  color: #c4b5fd !important; /* Bright lavender */
+}
+
+.dark .bg-primary-50,
+.dark .bg-primary-50\/60,
+.dark .bg-primary-50\/50 {
+  background-color: rgba(131, 24, 67, 0.35) !important;
+  border-color: rgba(236, 72, 153, 0.35) !important;
+}
+
+.dark .text-primary-700,
+.dark .text-primary-800 {
+  color: #f472b6 !important; /* Bright pink */
+}
+
+/* Form input styling in dark mode */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark textarea,
+.dark select {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8 !important;
 }
 
 /* Notification badge pulse */

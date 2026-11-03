@@ -50,7 +50,7 @@ export default function BabyGrowth() {
   }, [selectedWeek])
 
   return (
-    <div className="page-container bg-cream min-h-screen pb-28">
+    <div className="page-container min-h-screen pb-28">
       <Header title="Baby Growth 🌱" showBack />
 
       {/* Due Date & Current Stage Banner */}
@@ -58,20 +58,20 @@ export default function BabyGrowth() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 p-3.5 rounded-2xl glass-card border border-primary-200/80 flex items-center justify-between"
+          className="mb-4 p-3.5 rounded-2xl glass-card border border-primary-200/80 dark:border-slate-800 flex items-center justify-between"
         >
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center font-bold text-xs flex-shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-primary-100 dark:bg-primary-950/60 text-primary-600 dark:text-primary-300 flex items-center justify-center font-bold text-xs flex-shrink-0">
               🤰
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                 <span>You are at Week {currentWeek}, Day {currentDays}</span>
-                <span className="badge bg-mint-100 text-mint-700 text-[9px] py-0 px-1.5 font-bold">
+                <span className="badge bg-mint-100 dark:bg-mint-950/80 text-mint-700 dark:text-mint-300 text-[9px] py-0 px-1.5 font-bold">
                   Current
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400">
+              <div className="text-[11px] text-slate-400 dark:text-slate-400">
                 Due date: {formatDate(dueDate)}
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function BabyGrowth() {
           {selectedWeek !== currentWeek && currentWeek >= 4 && currentWeek <= 41 && (
             <button
               onClick={() => setSelectedWeek(currentWeek)}
-              className="px-2.5 py-1.5 rounded-xl bg-primary-50 text-primary-600 hover:bg-primary-100 text-xs font-semibold flex items-center gap-1 transition-colors flex-shrink-0"
+              className="px-2.5 py-1.5 rounded-xl bg-primary-50 dark:bg-slate-800 text-primary-600 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-slate-700 text-xs font-semibold flex items-center gap-1 transition-colors flex-shrink-0"
             >
               <RotateCcw className="w-3 h-3" />
               <span>Week {currentWeek}</span>
@@ -88,12 +88,12 @@ export default function BabyGrowth() {
           )}
         </motion.div>
       ) : (
-        <div className="mb-4 p-3 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between text-xs text-amber-800">
+        <div className="mb-4 p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center justify-between text-xs text-amber-800 dark:text-amber-200">
           <div className="flex items-center gap-2">
             <span>💡</span>
             <span>Set your due date on Home to track your exact week!</span>
           </div>
-          <Link to="/" className="text-primary-600 font-bold hover:underline">
+          <Link to="/" className="text-primary-600 dark:text-primary-400 font-bold hover:underline">
             Set Date
           </Link>
         </div>
@@ -105,11 +105,11 @@ export default function BabyGrowth() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-4"
       >
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-1.5">
-          <span className="font-semibold text-slate-700">Week {selectedWeek} of 40</span>
-          <span className="font-semibold text-primary-600">{progress}% complete</span>
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1.5">
+          <span className="font-semibold text-slate-700 dark:text-slate-200">Week {selectedWeek} of 40</span>
+          <span className="font-semibold text-primary-600 dark:text-primary-400">{progress}% complete</span>
         </div>
-        <div className="w-full h-2.5 bg-slate-200/70 rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-slate-200/70 dark:bg-slate-800 rounded-full overflow-hidden">
           <motion.div
             className="h-full gradient-primary rounded-full transition-all duration-500"
             style={{ width: `${progress}%` }}
@@ -137,13 +137,13 @@ export default function BabyGrowth() {
                   isSelected
                     ? 'gradient-primary text-white shadow-lg shadow-primary-500/30 scale-105'
                     : isMomCurrentWeek
-                    ? 'bg-primary-100 text-primary-700 border-2 border-primary-400'
-                    : 'bg-white/80 text-slate-600 border border-slate-200/60 hover:bg-slate-50'
+                    ? 'bg-primary-100 dark:bg-primary-950/60 text-primary-700 dark:text-primary-300 border-2 border-primary-400'
+                    : 'bg-white/80 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 <span>Wk {week}</span>
                 {isMomCurrentWeek && (
-                  <span className={`text-[8px] font-black uppercase tracking-wider ${isSelected ? 'text-pink-100' : 'text-primary-600'}`}>
+                  <span className={`text-[8px] font-black uppercase tracking-wider ${isSelected ? 'text-pink-100' : 'text-primary-600 dark:text-primary-400'}`}>
                     Now
                   </span>
                 )}
@@ -164,19 +164,19 @@ export default function BabyGrowth() {
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             {/* Main Size Card */}
-            <div className="glass-card rounded-3xl p-6 mb-4 text-center relative overflow-hidden shadow-xl shadow-primary-500/5 border border-primary-100">
+            <div className="glass-card rounded-3xl p-6 mb-4 text-center relative overflow-hidden shadow-xl shadow-primary-500/5 border border-primary-100 dark:border-slate-800">
               <div className="flex items-center justify-center gap-1.5 mb-1">
-                <span className="badge bg-primary-100 text-primary-700 text-[10px] font-bold py-0.5 px-2">
+                <span className="badge bg-primary-100 dark:bg-primary-950/80 text-primary-700 dark:text-primary-300 text-[10px] font-bold py-0.5 px-2">
                   WEEK {selectedWeek}
                 </span>
                 {currentWeek === selectedWeek && (
-                  <span className="badge bg-mint-100 text-mint-700 text-[10px] font-bold py-0.5 px-2">
+                  <span className="badge bg-mint-100 dark:bg-mint-950/80 text-mint-700 dark:text-mint-300 text-[10px] font-bold py-0.5 px-2">
                     YOUR CURRENT WEEK ⭐
                   </span>
                 )}
               </div>
 
-              <h2 className="text-sm font-semibold text-slate-500 mb-2">
+              <h2 className="text-sm font-semibold text-slate-500 dark:text-slate-300 mb-2">
                 Your baby is about the size of a
               </h2>
 
@@ -195,15 +195,15 @@ export default function BabyGrowth() {
 
               {/* Stats Row */}
               <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
-                <div className="bg-lavender-50/80 border border-lavender-100 py-2.5 px-3 rounded-2xl">
-                  <p className="text-[11px] text-lavender-500 font-semibold mb-0.5">📏 Baby Length</p>
-                  <p className="text-base font-bold text-lavender-700">
+                <div className="bg-lavender-50/80 dark:bg-slate-800/80 border border-lavender-100 dark:border-slate-700 py-2.5 px-3 rounded-2xl">
+                  <p className="text-[11px] text-lavender-500 dark:text-lavender-300 font-semibold mb-0.5">📏 Baby Length</p>
+                  <p className="text-base font-bold text-lavender-700 dark:text-lavender-200">
                     {weekData.lengthCm} <span className="text-xs font-normal">cm</span>
                   </p>
                 </div>
-                <div className="bg-primary-50/80 border border-primary-100 py-2.5 px-3 rounded-2xl">
-                  <p className="text-[11px] text-primary-500 font-semibold mb-0.5">⚖️ Baby Weight</p>
-                  <p className="text-base font-bold text-primary-700">
+                <div className="bg-primary-50/80 dark:bg-slate-800/80 border border-primary-100 dark:border-slate-700 py-2.5 px-3 rounded-2xl">
+                  <p className="text-[11px] text-primary-500 dark:text-primary-300 font-semibold mb-0.5">⚖️ Baby Weight</p>
+                  <p className="text-base font-bold text-primary-700 dark:text-primary-200">
                     {weekData.weightG < 1000
                       ? `${weekData.weightG} g`
                       : `${(weekData.weightG / 1000).toFixed(1)} kg`}
@@ -225,12 +225,12 @@ export default function BabyGrowth() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.08 }}
-                    className="flex items-start gap-3 bg-mint-50/80 border border-mint-200/60 rounded-2xl p-3"
+                    className="flex items-start gap-3 bg-mint-50/80 dark:bg-mint-950/40 border border-mint-200/60 dark:border-mint-900/60 rounded-2xl p-3"
                   >
                     <div className="w-5 h-5 rounded-full bg-mint-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3" strokeWidth={3} />
                     </div>
-                    <p className="text-xs text-slate-700 font-medium leading-relaxed">{milestone}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-100 font-medium leading-relaxed">{milestone}</p>
                   </motion.div>
                 ))}
               </div>
@@ -249,12 +249,12 @@ export default function BabyGrowth() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.08 + 0.2 }}
-                    className="flex items-start gap-3 bg-amber-50/80 border border-amber-200/60 rounded-2xl p-3"
+                    className="flex items-start gap-3 bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/60 dark:border-amber-900/60 rounded-2xl p-3"
                   >
                     <div className="w-5 h-5 rounded-full bg-amber-400 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
                       <AlertTriangle className="w-3 h-3" strokeWidth={3} />
                     </div>
-                    <p className="text-xs text-slate-700 font-medium leading-relaxed">{symptom}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-100 font-medium leading-relaxed">{symptom}</p>
                   </motion.div>
                 ))}
               </div>
@@ -265,15 +265,15 @@ export default function BabyGrowth() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-gradient-to-br from-primary-50 via-lavender-50 to-peach-50 border border-primary-200/60 rounded-3xl p-4 mb-5 shadow-sm"
+              className="bg-gradient-to-br from-primary-50 via-lavender-50 to-peach-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border border-primary-200/60 dark:border-slate-700 rounded-3xl p-4 mb-5 shadow-sm"
             >
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-2xl bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-lg">
+                <div className="w-9 h-9 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center flex-shrink-0 shadow-sm text-lg">
                   💡
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-primary-700 mb-1">Doctor Tip for Week {selectedWeek}</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">{weekData.tip}</p>
+                  <h4 className="text-xs font-bold text-primary-700 dark:text-primary-300 mb-1">Doctor Tip for Week {selectedWeek}</h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-200 leading-relaxed">{weekData.tip}</p>
                 </div>
               </div>
             </motion.div>
@@ -283,7 +283,7 @@ export default function BabyGrowth() {
               <button
                 onClick={() => setSelectedWeek((w) => Math.max(4, w - 1))}
                 disabled={selectedWeek <= 4}
-                className="flex items-center gap-1 px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:bg-primary-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm text-xs font-semibold"
+                className="flex items-center gap-1 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm text-xs font-semibold"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Week {selectedWeek - 1}</span>
@@ -295,7 +295,7 @@ export default function BabyGrowth() {
               <button
                 onClick={() => setSelectedWeek((w) => Math.min(41, w + 1))}
                 disabled={selectedWeek >= 41}
-                className="flex items-center gap-1 px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:bg-primary-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm text-xs font-semibold"
+                className="flex items-center gap-1 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm text-xs font-semibold"
               >
                 <span>Week {selectedWeek + 1}</span>
                 <ChevronRight className="w-4 h-4" />

@@ -20,3 +20,4 @@ echo "Press Ctrl+C to stop the server anytime."
 echo ""
 
 npm run dev
+

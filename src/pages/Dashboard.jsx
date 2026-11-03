@@ -333,17 +333,17 @@ export default function Dashboard() {
       {/* -------- 6. Weekly Tip -------- */}
       <motion.div
         variants={itemVariants}
-        className="rounded-2xl p-4 mb-5 bg-gradient-to-r from-primary-50 via-peach-50 to-lavender-50 border border-primary-200"
+        className="rounded-2xl p-4 mb-5 bg-gradient-to-r from-primary-50 via-peach-50 to-lavender-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 border border-primary-200 dark:border-slate-700"
       >
         <div className="flex items-start gap-3">
-          <div className="p-2 rounded-xl bg-white shadow-sm flex-shrink-0 text-xl">
+          <div className="p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex-shrink-0 text-xl">
             💡
           </div>
           <div>
-            <h4 className="font-display font-bold text-sm text-slate-800 mb-1">
+            <h4 className="font-display font-bold text-sm text-slate-800 dark:text-slate-100 mb-1">
               Tip for Week {weeks}
             </h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-200 leading-relaxed">
               {growthData.tip}
             </p>
           </div>

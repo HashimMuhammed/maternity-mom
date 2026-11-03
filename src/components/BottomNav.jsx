@@ -53,18 +53,16 @@ export default function BottomNav() {
                 <div className="relative z-10 flex flex-col items-center gap-0.5">
                   <Icon
                     size={22}
-                    className={`transition-colors duration-300 ${
-                      active
+                    className={`transition-colors duration-300 ${active
                         ? 'text-primary-500 stroke-[2.5]'
                         : 'text-slate-400 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200'
-                    }`}
+                      }`}
                   />
                   <span
-                    className={`text-[11px] font-semibold transition-colors duration-300 ${
-                      active
+                    className={`text-[11px] font-semibold transition-colors duration-300 ${active
                         ? 'text-primary-600 font-bold'
                         : 'text-slate-400 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200'
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </span>

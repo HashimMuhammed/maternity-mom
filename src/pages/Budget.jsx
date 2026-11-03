@@ -275,7 +275,7 @@ export default function Budget() {
               </div>
 
               {/* Progress bar */}
-              <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden mt-2">
+              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden mt-2">
                 <div 
                   className={`h-full rounded-full transition-all duration-500 ${
                     cat.color === 'primary' ? 'bg-primary-500' :
@@ -285,7 +285,7 @@ export default function Budget() {
                   style={{ width: `${Math.min(100, cat.percent)}%` }}
                 />
               </div>
-              <div className="flex justify-between items-center mt-1 text-[11px] text-slate-400">
+              <div className="flex justify-between items-center mt-1 text-[11px] text-slate-400 dark:text-slate-400">
                 <span>{cat.percent}% purchased</span>
                 <span>{formatCurrency(Math.max(0, cat.budgeted - cat.spent))} remaining</span>
               </div>
@@ -299,7 +299,7 @@ export default function Budget() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <h2 className="section-title">Other & Medical Expenses</h2>
-            <p className="text-xs text-slate-500">Doctor fees, medicines, scans, photoshoot, etc.</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Doctor fees, medicines, scans, photoshoot, etc.</p>
           </div>
           <button 
             onClick={() => setShowAddExpense(!showAddExpense)}
@@ -318,7 +318,7 @@ export default function Budget() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               onSubmit={handleAddCustomExpense}
-              className="glass-card rounded-2xl p-4 mb-4 border-2 border-primary-200 overflow-hidden"
+              className="glass-card rounded-2xl p-4 mb-4 border-2 border-primary-200 dark:border-primary-800 overflow-hidden"
             >
               <h3 className="font-semibold text-sm text-slate-800 mb-3 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-primary-500" />
